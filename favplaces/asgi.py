@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 ASGI config for favplaces project.
 
@@ -13,4 +14,10 @@ from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'favplaces.settings')
 
+=======
+import os
+from django.core.asgi import get_asgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'favplaces.settings')
+>>>>>>> 05b0b54 (Lab implementation: models, views, templates, cleanup)
 application = get_asgi_application()

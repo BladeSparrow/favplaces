@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 Django settings for favplaces project.
 
@@ -30,6 +31,17 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+=======
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+SECRET_KEY = 'django-insecure-very-secret-key-for-local-dev'
+DEBUG = True
+ALLOWED_HOSTS = []
+
+>>>>>>> 05b0b54 (Lab implementation: models, views, templates, cleanup)
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
+=======
+    'places.apps.PlacesConfig',
+>>>>>>> 05b0b54 (Lab implementation: models, views, templates, cleanup)
 ]
 
 MIDDLEWARE = [
@@ -54,10 +70,18 @@ ROOT_URLCONF = 'favplaces.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+=======
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+>>>>>>> 05b0b54 (Lab implementation: models, views, templates, cleanup)
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -68,10 +92,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'favplaces.wsgi.application'
 
+<<<<<<< HEAD
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+=======
+>>>>>>> 05b0b54 (Lab implementation: models, views, templates, cleanup)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -79,6 +106,7 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -120,3 +148,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+=======
+AUTH_PASSWORD_VALIDATORS = []
+
+LANGUAGE_CODE = 'uk'
+
+TIME_ZONE = 'Europe/Kyiv'
+
+USE_I18N = True
+USE_TZ = True
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "places" / "static"]
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+>>>>>>> 05b0b54 (Lab implementation: models, views, templates, cleanup)

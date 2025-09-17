@@ -1,0 +1,11 @@
+{% load static %}
+<div class="place-preview">
+  <a href="{% url 'places:place_detail' place.pk %}" class="place-title">{{ place.title }}</a>
+  <img src="{% if place.image %}{{ place.image.url }}{% else %}{% static 'places/img/default_place.jpg' %}{% endif %}" alt="{{ place.title }}" class="preview-img">
+  <p>{{ place.short_description|default:place.description|truncatewords:8 }}</p>
+  <p><strong>Тип:</strong> {{ place.get_place_type_display }}</p>
+  <p><strong>Локація:</strong> {% if place.location %}{{ place.location }}{% else %}Secret place👀{% endif %}</p>
+  <p><strong>Рейтинг:</strong> {% for i in "12345" %}{% if forloop.counter <= place.rating %}★{% else %}☆{% endif %}{% endfor %}</p>
+  <p><strong>Створено:</strong> {{ place.created_at|date:"Y-m-d H:i" }}</p>
+  {% if show_full_link %}<a href="{% url 'places:place_detail' place.pk %}">Детальніше</a>{% endif %}
+</div>
